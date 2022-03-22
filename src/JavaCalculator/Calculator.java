@@ -1,84 +1,52 @@
 package JavaCalculator;
 
-import java.util.Locale;
+
 import java.util.Scanner;
 
 public class Calculator {
-    Scanner scan = new Scanner(System.in);
 
-    public void mathOptions() {
-        System.out.println("1.Addition");
-        System.out.println("2.Subtraction");
-        System.out.println("3.Multiplication");
-        System.out.println("4.Division");
-        System.out.println("5.Square");
+    public static void main(String[] args){
 
-    }
+        double num1, num2;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the first number:");
+        num1 = scanner.nextDouble();
+        System.out.println("Enter the second number:");
+        num2 = scanner.nextDouble();
 
-    public double add() {
-        scan.useLocale(Locale.US);
-        double a, b;
-        System.out.println("Enter the first value");
-        a = scan.nextDouble();
-        System.out.println("Enter second value");
-        b = scan.nextDouble();
-        double value = a + b;
+        System.out.println("Select operation (+, -, *, /, ^): ");
+        char option = scanner.next().charAt(0);
 
-        return value;
+        scanner.close();
+        double result;
 
-    }
+        switch(option) {
+            case '+':
+                result = num1 + num2;
+                break;
 
-    public double subtract() {
-        scan.useLocale(Locale.US);
-        double a, b;
-        System.out.println("Enter first value");
-        a  = scan.nextDouble();
-        System.out.println("Enter second value");
-        b = scan.nextDouble();
-        double value = a - b;
+            case '-':
+                result = num1 - num2;
+                break;
 
-        return value;
+            case '*':
+                result = num1 * num2;
+                break;
 
-    }
+            case '/':
+                result = num1 / num2;
+                break;
 
-    public double multiply() {
-        scan.useLocale(Locale.US);
-        double a, b;
-        System.out.println("Enter first value");
-        a = scan.nextDouble();
-        System.out.println("Enter second value");
-        b = scan.nextDouble();
-        double value = a * b;
+            case '^':
+                result = num1 * num1;
+                break;
 
-        return value;
+            default:
+                System.out.println("Incorrect selection. Please try again.");
+                return;
+      }
+
+      System.out.println(num1+" "+option+" "+num2+": "+result);
 
     }
-
-    public double divide() {
-        scan.useLocale(Locale.US);
-        double a, b;
-        System.out.println("Enter first value");
-        a = scan.nextDouble();
-        System.out.println("Enter second value");
-        b = scan.nextDouble();
-        double value = a / b;
-
-        return value;
-
-    }
-
-    public double square() {
-        scan.useLocale(Locale.US);
-        double a, b;
-        System.out.println("Enter first value");
-        a = scan.nextDouble();
-        System.out.println("Enter second value");
-        b = scan.nextDouble();
-        double value = a * a;
-
-        return value;
-
-    }
-
-
 }
